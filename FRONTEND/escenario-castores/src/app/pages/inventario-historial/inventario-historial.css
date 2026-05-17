@@ -1,0 +1,12 @@
+.tablaMovimientos {
+    margin-top: 10px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 10px;
+}
+
+.labelTipoMovimiento {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

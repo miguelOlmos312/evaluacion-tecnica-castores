@@ -1,0 +1,19 @@
+.navegador {
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.itemNavegador {
+    padding-top: 2px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+    font-size: 25px;
+    text-decoration: none;
+    color: rgb(46, 46, 165);
+    background-color: rgb(241, 241, 241);
+    border-radius: 12%;
+    margin-left: 10px;
+    box-shadow: 2px 2px rgba(78, 78, 78, 0.3);
+}

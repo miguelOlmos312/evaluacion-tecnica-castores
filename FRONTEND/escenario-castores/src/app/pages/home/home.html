@@ -1,0 +1,7 @@
+<nav *ngIf="auth.tienePermiso(1)" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="itemNavegador" routerLink="entrada">Entrada</a>
+    <a *ngIf="auth.tienePermiso(5)" class="itemNavegador" routerLink="salida">Salida</a>
+    <a *ngIf="auth.tienePermiso(7)" class="itemNavegador" routerLink="historial">Historial</a>
+    <a class="itemNavegador" routerLink="../" (click)="cerrarSesion()">Salir</a>
+</nav>
+<router-outlet></router-outlet>

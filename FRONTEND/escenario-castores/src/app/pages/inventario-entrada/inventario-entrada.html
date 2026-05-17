@@ -1,0 +1,68 @@
+<div class="formularioProducto">
+    <h1>INVENTARIO ENTRADA</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Estatus</th>
+                <th *ngIf="auth.tienePermiso(3) && auth.tienePermiso(4)">Opciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of productos">
+                <td>{{item.nombre}}</td>
+                <td>{{item.precio}}</td>
+                <td>{{item.stock}}</td>
+                <td>{{item.estatus}}</td>
+                <div class="botonesFilaProducto">
+                    <button type="button" class="btn" [ngClass]="item.estatus == 1 ? 'btn-danger' : 'btn-success'"
+                        (click)="cambiarEstatus(item.id_producto)" *ngIf="auth.tienePermiso(4)">{{ item.estatus == 1 ?
+                        'Deshabilitar' : 'Habilitar'
+                        }}</button>
+
+                    <button type="button" class="btn btn-secondary" (click)="entradaDeProducto(item)"
+                        *ngIf="auth.tienePermiso(3)">Entrada</button>
+                </div>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div *ngIf="auth.tienePermiso(2)">
+        <h2>{{modoFormulario === 'nuevo' ? "Nuevo producto" : "Entrada de producto"}}</h2>
+        <form [formGroup]=" productoForm"
+            (ngSubmit)="modoFormulario === 'nuevo' ? agregarProducto() : guardarEntrada()">
+            <div class=" form-group">
+                <label>Nombre</label>
+                <input type="text" , formControlName="nombre" class="form-control"
+                    [readonly]="modoFormulario === 'entrada'">
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input type="number" , formControlName="precio" class="form-control"
+                    [readonly]="modoFormulario === 'entrada'" min="0">
+            </div>
+            <div class="form-group">
+                <label>Stock</label>
+                <input type="number" , formControlName="stock" class="form-control"
+                    [readonly]="modoFormulario === 'nuevo'" min="0">
+            </div>
+            <div *ngIf=" productoForm.get('stock')?.hasError('stockEsMenor') && productoForm.get('stock')?.dirty "
+                class="text-danger">
+                El stock no puede ser menor al actual.</div>
+            <div class="botonesFormulario">
+                <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid">{{ modoFormulario ===
+                    'nuevo' ?
+                    "Agregar producto" : "Guardar entrada" }}</button>
+
+                <button *ngIf="mostrarBotonCancelar" type="button" class="btn btn-warning"
+                    (click)="cancelarEntrada()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

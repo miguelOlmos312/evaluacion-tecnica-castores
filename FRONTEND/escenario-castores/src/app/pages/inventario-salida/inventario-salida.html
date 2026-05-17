@@ -1,0 +1,55 @@
+<div class="formularioProducto">
+    <h1>INVENTARIO SALIDA</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Estatus</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of productos">
+                <td>{{item.nombre}}</td>
+                <td>{{item.precio}}</td>
+                <td>{{item.stock}}</td>
+                <td>{{item.estatus}}</td>
+                <div>
+                    <button type="button" class="btn btn-secondary" (click)="salidaDeProducto(item)"
+                        *ngIf="auth.tienePermiso(6)">Salida</button>
+                </div>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    <h2>Salida de producto</h2>
+    <form [formGroup]=" productoForm" (ngSubmit)="guardarSalida()">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" , formControlName="nombre" class="form-control" [readonly]="true">
+        </div>
+        <div class="form-group">
+            <label>Precio</label>
+            <input type="number" , formControlName="precio" class="form-control" [readonly]="true" min="0">
+        </div>
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="number" , formControlName="stock" class="form-control" min="0">
+        </div>
+        <div *ngIf=" productoForm.get('stock')?.hasError('stockEsMayor') && productoForm.get('stock')?.dirty "
+            class="text-danger">
+            El stock no puede ser mayor al actual.</div>
+        <div class="botonesFormulario">
+            <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid">Guardar salida</button>
+
+            <button *ngIf="mostrarBotonCancelar" type="button" class="btn btn-warning"
+                (click)="cancelarSalida()">Cancelar</button>
+        </div>
+    </form>
+</div>
