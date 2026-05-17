@@ -1,6 +1,7 @@
 # Evaluación Técnica Castores
 Solución a la evaluación técnica de Castores
 
+Demostración de los escenarios: https://drive.google.com/drive/folders/1_DYRKRMk7np-gZnwwiST18DH1hiIde75?usp=sharing
 
 ## Requisitos técnicos
 1. **IDE utilizado**: Visual Studio Code (para Angular) y Spring Tools Suite 4 (para backend).
