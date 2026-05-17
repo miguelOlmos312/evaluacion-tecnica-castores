@@ -13,44 +13,44 @@ Solución a la evaluación técnica de Castores
 ## Pasos para ejecutar la aplicación localmente
 
 ### 1 Configurar base de datos
-** 1.1 Crear el esquema en MySQL Workbench **
+**1.1 Crear el esquema en MySQL Workbench**
 ```bash
 CREATE SCHEMA escenario_db_castores;
 USE escenario_db_castores;
 ```
-** 1.2 Ejecutar los scripts de tablas **
+**1.2 Ejecutar los scripts de tablas**
  - SCRIPTS/script_utilizado.sql
+
 
 ### 2. Correr backend (Spring Boot)
 Carpeta: BACKEND/escenario-castores
 
-** 2.1 Inicializar aplicacion de Spring **
-** Opción A - Usando Spring Tools Suite (STS) **
+**2.1 Inicializar aplicación de Spring Boot**
+Opción A - Usando Spring Tools Suite (STS)
 - Abrir el proyecto en STS
 - Hacer clic derecho en el proyecto → Run As → Spring Boot App
 
-** Opción B - Usando terminal **
+Opción B - Usando terminal
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-** Puerto en funcionamiento **
+Puerto en funcionamiento
 Configuración predeterminada de Spring Boot:  [http://localhost:8080/](http://localhost:8080/)
 
 
 ### 3. Correr frontend (Angular)
 Carpeta: FRONTEND/escenario-castores
 
-** 3.1 Instalar dependencias (solo la primera vez) **
+**3.1 Instalar dependencias (solo la primera vez)**
 ```bash
 npm install
 ```
-** 3.2 Inicializar aplicación de Angular **
+**3.2 Inicializar aplicación de Angular**
 ```bash
 ng serve -o
 ```
-
-** Puerto en funcionamiento **
+Puerto en funcionamiento
 Configuración predeterminada de Angular: [http://localhost:8080/](http://localhost:4200/)
 
