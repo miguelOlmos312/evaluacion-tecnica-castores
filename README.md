@@ -52,5 +52,5 @@ npm install
 ng serve -o
 ```
 Puerto en funcionamiento
-Configuración predeterminada de Angular: [http://localhost:8080/](http://localhost:4200/)
+Configuración predeterminada de Angular: [http://localhost:4200/](http://localhost:4200/)
 
