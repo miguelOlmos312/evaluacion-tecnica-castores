@@ -1,4 +1,4 @@
-# Evaluacion Tecnica Castores
+# Evaluación Técnica Castores
 Solución a la evaluación técnica de Castores
 
 
